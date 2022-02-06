@@ -741,11 +741,15 @@ contract W3ECO is Context, IERC20, Ownable {
         _whaleSellTaxFee = taxFee;
     }
 
-    function setMaxTxAmount(uint256 maxTxAmount)) external onlyOwner() {
-       require(maxTxAmount >= (_totalSupply.mul(1).div(10000)).div(10**18), "amount must be greater than 0.01% of the total supply");
+    function setMaxTxAmount(uint256 maxTxAmount) external onlyOwner() {
+       require(maxTxAmount >= (_tTotal.mul(1).div(10000)).div(10**18), "amount must be greater than 0.01% of the total supply");
         _maxTxAmount = maxTxAmount;
     }
-      
+    
+    function totalSupply() external view override returns (uint256) {
+        return _tTotal;
+    }
+
     function setTokenSwapThreshold(uint256 tokenSwapThreshold) external onlyOwner() {
         _tokenSwapThreshold = tokenSwapThreshold;
     }
