@@ -727,29 +727,14 @@ contract W3ECO is Context, IERC20, Ownable {
         require(taxFee <= 25, "Total fee is over 25%");
         _taxFee = taxFee;
     }
-
-    function setTaxFeePercent(uint256 taxFee) external onlyOwner() {
-        require(taxFee > 0, "transaction amount must be greater than zero");
-        _taxFee = taxFee;
-    }
     
     function setSellTaxFeePerecent(uint256 taxFee) external onlyOwner() {
         require(taxFee <= 25, "Total fee is over 25%");
         _sellTaxFee = taxFee;
     }
 
-    function setSellTaxFeePerecent(uint256 taxFee) external onlyOwner() {
-        require(taxFee > 0, "transaction amount must be greater than zero");
-        _sellTaxFee = taxFee;
-    }
-
     function setWhaleSellTaxFeePerecent(uint256 taxFee) external onlyOwner() {
         require(taxFee <= 25, "Total fee is over 25%");
-        _whaleSellTaxFee = taxFee;
-    }
-
-    function setWhaleSellTaxFeePerecent(uint256 taxFee) external onlyOwner() {
-        require(taxFee > 0, "transaction amount must be greater than zero");
         _whaleSellTaxFee = taxFee;
     }
 
@@ -758,11 +743,6 @@ contract W3ECO is Context, IERC20, Ownable {
         _maxTxAmount = maxTxAmount;
     }
    
-    function setMaxTxAmount(uint256 maxTxAmount) external onlyOwner() {
-        require(maxTxAmount > 0, "transaction amount must be greater than zero");
-        _maxTxAmount = maxTxAmount;
-    }
-      
     function setTokenSwapThreshold(uint256 tokenSwapThreshold) external onlyOwner() {
         _tokenSwapThreshold = tokenSwapThreshold;
     }
