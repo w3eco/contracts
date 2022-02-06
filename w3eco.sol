@@ -14,7 +14,14 @@
 // 
 // W3ECO has 7% tax split across 7 protocols
 // 
-                                                                                 
+// 1. Burn
+// 2. Buyback
+// 3. Reserves
+// 4. Farming
+// 5. Liquidity
+// 6. Marketing
+// 7. Lottery
+
 pragma solidity ^0.8.4;
 
 // IERC20 interface taken from: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol)
@@ -497,7 +504,7 @@ contract W3ECO is Context, IERC20, Ownable {
     );
     
     // Addresses
-    address payable public _marketingAddress = payable(0xc79f6A392d08ef23A7CBDEFDD4A3545c654D482F); // Marketing address used to pay for marketing
+    address payable public _marketingAddress = payable(0x5ED5765b03b6271Dd057C3Fd3e544d364c7Ba23f); // Marketing address used to pay for marketing
     address payable public _burnAddress      = payable(0x000000000000000000000000000000000000dEaD); // Burn address used to burn a portion of tokens
     
     // Balances
