@@ -1,7 +1,3 @@
-/**
- *Submitted for verification at BscScan.com on 2022-01-23
-*/
-
 // SPDX-License-Identifier: MIT
 //
 // Copyright of The W3ECO
@@ -727,7 +723,7 @@ contract W3ECO is Context, IERC20, Ownable {
         require(taxFee <= 25, "Total fee is over 25%");
         _taxFee = taxFee;
     }
-    
+
     function setSellTaxFeePerecent(uint256 taxFee) external onlyOwner() {
         require(taxFee <= 25, "Total fee is over 25%");
         _sellTaxFee = taxFee;
@@ -739,10 +735,10 @@ contract W3ECO is Context, IERC20, Ownable {
     }
 
     function setMaxTxAmount(uint256 maxTxAmount)) external onlyOwner() {
-        require(taxFee <= 25, "Total fee is over 25%");
+       require(maxTxAmount >= (_totalSupply.mul(1).div(10000)).div(10**18), "amount must be greater than 0.01% of the total supply");
         _maxTxAmount = maxTxAmount;
     }
-   
+      
     function setTokenSwapThreshold(uint256 tokenSwapThreshold) external onlyOwner() {
         _tokenSwapThreshold = tokenSwapThreshold;
     }
